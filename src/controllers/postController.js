@@ -5,7 +5,7 @@ module.exports = {
   async getAllPost(_req, res, next) {
     try {
     const posts = await postsServices.getAll();
-    return res.status(200).json(posts);
+    return res.status(201).json(posts);
   } catch (error) {
     next({ status: 500, error });
   }
@@ -15,7 +15,7 @@ module.exports = {
     try {
       const { id } = req.params;
       const post = await postsServices.getById(id);
-      return res.status(200).json(post);
+      return res.status(201).json(post);
     } catch (error) {
       next({ status: 500, error });
     }
@@ -62,7 +62,7 @@ module.exports = {
         content,
         user,
       });
-      return res.status(200).json(updatedPost);
+      return res.status(201).json(updatedPost);
     } catch (error) {
       next({ status: 500, error });
     }
