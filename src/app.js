@@ -1,7 +1,11 @@
 const express = require('express');
 
-const loginRouters = require('./routes/loginRouter');
 const userRouters = require('./routes/userRoutes');
+const loginRouters = require('./routes/loginRouter');
+const categorieRouters = require('./routes/categorieRouter');
+const postRouters = require('./routes/postRouter');
+
+const errorMiddleware = require('./middleware/error');
 
 // ...
 
@@ -14,8 +18,11 @@ app.get('/', (_request, response) => {
 
 app.use(express.json());
 
-app.use('/login', loginRouters);
 app.use('/user', userRouters);
+app.use('/login', loginRouters);
+app.use('/categories', categorieRouters);
+app.use('/post', postRouters);
+app.use(errorMiddleware);
 
 // ...
 
