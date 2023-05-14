@@ -4,7 +4,7 @@ module.exports = Joi.object({
   email: Joi.string().email().required()
   .messages({
     'any.required': '400|"email" is required',
-    'string.empty': '400|"email" is not allowed to be empty',
+    'string.empty': '400|Some required fields are missing',
     'string.base': '422|"email" must be a string',
     'string.email': '400|"email" must be a valid email',
   }),
