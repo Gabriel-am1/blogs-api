@@ -6,12 +6,7 @@ module.exports = {
     return categories;
   },
 
-  async create({ name }) {
-    // const isNameExist = await Category.findOne({ where: { name } });
-    // if (!isNameExist) {
-    //   return { status: 400, message: '"name" is required' };     
-    // } 
-    
+  async create({ name }) {   
     const duplicatedCategory = await Category.findOne({ where: { name } });
     if (duplicatedCategory) { 
       return { status: 409, message: { message: 'Category already registered' } }; 

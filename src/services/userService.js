@@ -13,7 +13,8 @@ module.exports = {
   },
 
   async getAll() {
-    const users = await User.findAll();  
+    const users = await User.findAll();
+  
     return users;
   },
 

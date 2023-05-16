@@ -22,6 +22,7 @@ app.use('/user', userRouters);
 app.use('/login', loginRouters);
 app.use('/categories', categorieRouters);
 app.use('/post', postRouters);
+
 app.use(errorMiddleware);
 
 // ...
