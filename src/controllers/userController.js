@@ -11,16 +11,16 @@ module.exports = {
    }  
   },
 
-  async getByIdUser(req, res, next) {    
+  async getByIdUser(req, res) {
     try {
       const { id } = req.params;
-      const user = await userServices.getById(id);
-      if (!user) return res.status(404).json({ message: 'User does not exist' });  
-      return res.status(200).json(user);     
+      const result = await userServices.getByIdUser(id);
+      delete result.dataValues.password;
+      return res.status(200).json(result);
     } catch (error) {
-      next({ status: 400, error });
-     }  
-    },
+      return res.status(404).json({ message: 'User does not exist' });
+    }
+  },
 
   async createUser(req, res, next) {
     try {

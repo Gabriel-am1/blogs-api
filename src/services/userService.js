@@ -9,7 +9,7 @@ module.exports = {
 
     const newUser = await User.create({ displayName, email, password, image });
     const token = jwtGenerator({ id: newUser.id, displayName });  
-    return { code: 201, token };
+    return { code: 200, token };
   },
 
   async getAll() {
