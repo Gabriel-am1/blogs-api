@@ -7,7 +7,7 @@ module.exports = {
     const users = await userServices.getAll();
     return res.status(200).json(users);    
   } catch (error) {
-    next({ status: 500, error });
+    next({ status: 400, error });
    }  
   },
 
@@ -18,7 +18,7 @@ module.exports = {
       if (!user) return res.status(404).json({ message: 'User does not exist' });  
       return res.status(200).json(user);     
     } catch (error) {
-      next({ status: 500, error });
+      next({ status: 400, error });
      }  
     },
 
@@ -28,7 +28,7 @@ module.exports = {
       if (message) return res.status(code).json({ message });
       return res.status(code).json({ token });
     } catch (error) {
-      next({ status: 500, error });
+      next({ status: 400, error });
     }
   }, 
 
@@ -38,7 +38,7 @@ module.exports = {
       await userServices.remove(id); 
       return res.status(200).end();
     } catch (error) {
-      next({ status: 500, error });
+      next({ status: 400, error });
     }
   },
 
