@@ -11,10 +11,10 @@ module.exports = {
    }  
   },
 
-  async getByIdUser(req, res) {
+  async getById(req, res) {
     try {
       const { id } = req.params;
-      const result = await userServices.getByIdUser(id);
+      const result = await userServices.getById(id);
       delete result.dataValues.password;
       return res.status(200).json(result);
     } catch (error) {
